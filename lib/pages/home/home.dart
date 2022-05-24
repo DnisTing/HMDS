@@ -5,6 +5,7 @@ import 'package:hmd_system/pages/model/Muser.dart';
 import 'package:hmd_system/pages/monitoring/monitoring1.dart';
 import 'package:hmd_system/pages/profile/Userprofile.dart';
 import 'package:hmd_system/pages/settings.dart';
+import 'package:hmd_system/pages/appointment/listAppointment.dart';
 import 'package:intl/intl.dart';
 
 class homePage extends StatefulWidget {
@@ -124,35 +125,43 @@ class _homePageState extends State<homePage> {
                 );
               },
             ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                color: Colors.blueGrey[300],
+            InkWell(
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                  color: Colors.blueGrey[300],
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.calendar_today,
+                      size: 40,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      "Appointment",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "\nManage your appointment here",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.calendar_today,
-                    size: 40,
-                    color: Colors.white,
-                  ),
-                  Text(
-                    "Appointment",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    "\nManage your appointment here",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => listApt()),
+                );
+              },
             ),
             Container(
               decoration: BoxDecoration(
