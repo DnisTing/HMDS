@@ -34,10 +34,18 @@ class _editProfileState extends State<editProfile> {
           'city': city,
           'postcode': postcode,
           'state': state,
-          'country': country
+          'country': country,
         })
         .then((value) => print("Profile Updated"))
         .catchError((error) => print("Update Failed: $error"));
+  }
+
+  delete(name, post, dept, hosp, street, city, postcode, state, country) {
+    return FirebaseFirestore.instance
+        .collection("mUsers")
+        .doc(user!.uid)
+        .delete()
+        .then((value) => print("Profile Cleared"));
   }
 
   @override
@@ -355,7 +363,10 @@ class _editProfileState extends State<editProfile> {
                             ),
                           ),
                           ElevatedButton(
-                            onPressed: () => {},
+                            onPressed: () => {
+                              delete(name, post, dept, hosp, street, city,
+                                  postcode, state, country)
+                            },
                             child: Text(
                               'Reset',
                               style: TextStyle(fontSize: 18.0),
