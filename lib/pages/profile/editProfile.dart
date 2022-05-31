@@ -68,7 +68,7 @@ class _editProfileState extends State<editProfile> {
         elevation: 0,
         leading: BackButton(),
         title: Text(
-          'Profile',
+          'Edit Profile',
           style: TextStyle(
             fontSize: 15.0,
             fontWeight: FontWeight.bold,

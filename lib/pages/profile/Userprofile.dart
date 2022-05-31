@@ -75,195 +75,206 @@ class _userProfileState extends State<userProfile> {
         ],
       ),
       body: Builder(
-        builder: (context) => Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              SizedBox(
-                height: 20.0,
-              ),
-              Card(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-                child: Container(
-                  child: Column(
-                    children: <Widget>[
-                      ListTile(
-                        title: Text(
-                          "Name",
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        subtitle: Text(
-                          "${loggedInUser.name}",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                          ),
-                        ),
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            color: Colors.black54,
-                            width: 3,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
+        builder: (context) => Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(
+              height: 20.0,
+            ),
+            Card(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              child: Container(
+                child: Column(
+                  children: <Widget>[
+                    ListTile(
+                      title: Text(
+                        "Name",
+                        style: TextStyle(
+                          color: Colors.black54,
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 10.0),
-                      ListTile(
-                        title: Text(
-                          "Email",
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        subtitle: Text(
-                          "${loggedInUser.email}",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                          ),
-                        ),
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            color: Colors.black54,
-                            width: 3,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
+                      subtitle: Text(
+                        "${loggedInUser.name}",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
                         ),
                       ),
-                      SizedBox(height: 10.0),
-                      ListTile(
-                        title: Text(
-                          "Position",
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold,
-                          ),
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          color: Colors.black54,
+                          width: 3,
                         ),
-                        subtitle: Text(
-                          "${loggedInUser.post}",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                          ),
-                        ),
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            color: Colors.black54,
-                            width: 3,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      SizedBox(height: 10.0),
-                      ListTile(
-                        title: Text(
-                          "Department",
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        subtitle: Text(
-                          "${loggedInUser.dept}",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                          ),
-                        ),
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            color: Colors.black54,
-                            width: 3,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      SizedBox(height: 10.0),
-                      ListTile(
-                        title: Text(
-                          "Hospital",
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        subtitle: Text(
-                          "${loggedInUser.hosp}",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                          ),
-                        ),
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            color: Colors.black54,
-                            width: 3,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      SizedBox(height: 10.0),
-                      ListTile(
-                        title: Text(
-                          "Address",
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 13,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        subtitle: Text(
-                          "${loggedInUser.street} ${loggedInUser.city} ${loggedInUser.postcode} ${loggedInUser.state} ${loggedInUser.country}",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                          ),
-                        ),
-                        shape: RoundedRectangleBorder(
-                          side: BorderSide(
-                            color: Colors.black54,
-                            width: 3,
-                          ),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => editProfile(),
                     ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(primary: Colors.black),
-                child: Text(
-                  'Edit',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15.0,
-                  ),
+                    SizedBox(height: 10.0),
+                    ListTile(
+                      title: Text(
+                        "Email",
+                        style: TextStyle(
+                          color: Colors.black54,
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      subtitle: Text(
+                        "${loggedInUser.email}",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                        ),
+                      ),
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          color: Colors.black54,
+                          width: 3,
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                    ListTile(
+                      title: Text(
+                        "Position",
+                        style: TextStyle(
+                          color: Colors.black54,
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      subtitle: Text(
+                        "${loggedInUser.post}",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                        ),
+                      ),
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          color: Colors.black54,
+                          width: 3,
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                    ListTile(
+                      title: Text(
+                        "Department",
+                        style: TextStyle(
+                          color: Colors.black54,
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      subtitle: Text(
+                        "${loggedInUser.dept}",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                        ),
+                      ),
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          color: Colors.black54,
+                          width: 3,
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                    ListTile(
+                      title: Text(
+                        "Hospital",
+                        style: TextStyle(
+                          color: Colors.black54,
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      subtitle: Text(
+                        "${loggedInUser.hosp}",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                        ),
+                      ),
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          color: Colors.black54,
+                          width: 3,
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                    ListTile(
+                      title: Text(
+                        "Address",
+                        style: TextStyle(
+                          color: Colors.black54,
+                          fontSize: 13,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      subtitle: Text(
+                        "${loggedInUser.street} ${loggedInUser.city} ${loggedInUser.postcode} ${loggedInUser.state} ${loggedInUser.country}",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                        ),
+                      ),
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          color: Colors.black54,
+                          width: 3,
+                        ),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => editProfile(),
+                  ),
+                );
+              },
+              style: ElevatedButton.styleFrom(primary: Colors.black),
+              child: Text(
+                'Edit',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 15.0,
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                refresh();
+              },
+              style: ElevatedButton.styleFrom(primary: Colors.black),
+              child: Text(
+                'Refresh',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 15.0,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
       endDrawer: ClipPath(
@@ -294,6 +305,14 @@ class _userProfileState extends State<userProfile> {
         ),
       ),
     );
+  }
+
+  Future<void> refresh() async {
+    Navigator.pushReplacement(
+        context,
+        PageRouteBuilder(
+            pageBuilder: (a, b, c) => userProfile(),
+            transitionDuration: Duration(seconds: 2)));
   }
 }
 

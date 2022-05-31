@@ -13,6 +13,22 @@ class Loginpage extends StatefulWidget {
 }
 
 class _LoginState extends State<Loginpage> {
+  Future<bool?> showWarning(BuildContext context) async => showDialog<bool>(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text('Do you want to exit the app?'),
+          actions: [
+            ElevatedButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: Text('No'),
+            ),
+            ElevatedButton(
+              onPressed: () => Navigator.pop(context, true),
+              child: Text('Yes'),
+            ),
+          ],
+        ),
+      );
   bool hidePassword = true;
   final formkey = GlobalKey<FormState>();
   final TextEditingController emailController = new TextEditingController();
@@ -110,74 +126,83 @@ class _LoginState extends State<Loginpage> {
       ),
     );
 
-    return Scaffold(
-      backgroundColor: Colors.blueGrey[100],
-      body: Center(
-        child: SingleChildScrollView(
-          child: Container(
-            color: Colors.blueGrey[100],
-            child: Padding(
-              padding: const EdgeInsets.all(3.0),
-              child: Form(
-                key: formkey,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'Welcome!',
-                      style: TextStyle(
-                        color: Colors.grey[700],
-                        fontWeight: FontWeight.w500,
-                        fontSize: 35,
-                      ),
-                    ),
-                    SizedBox(height: 45),
-                    emailField,
-                    SizedBox(height: 25),
-                    passwordField,
-                    SizedBox(height: 35),
-                    loginButton,
-                    SizedBox(height: 15),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text("Press me to "),
-                        GestureDetector(
-                          onTap: () {
-                            _navigateToSignupScreen(context);
-                          },
-                          child: Text(
-                            "Signup ",
-                            style: TextStyle(
-                                color: Colors.blue[900],
-                                fontWeight: FontWeight.bold,
-                                fontSize: 15),
-                          ),
+    return WillPopScope(
+      onWillPop: () async {
+        print('Back Button Pressed');
+
+        final shouldPop = await showWarning(context);
+
+        return shouldPop ?? false;
+      },
+      child: Scaffold(
+        backgroundColor: Colors.blueGrey[100],
+        body: Center(
+          child: SingleChildScrollView(
+            child: Container(
+              color: Colors.blueGrey[100],
+              child: Padding(
+                padding: const EdgeInsets.all(3.0),
+                child: Form(
+                  key: formkey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'Welcome!',
+                        style: TextStyle(
+                          color: Colors.grey[700],
+                          fontWeight: FontWeight.w500,
+                          fontSize: 35,
                         ),
-                        Text("now !")
-                      ],
-                    ),
-                    SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        GestureDetector(
-                          onTap: () {
-                            _navigateToResetScreen(context);
-                          },
-                          child: Text(
-                            "Forgot Password",
-                            style: TextStyle(
-                              color: Colors.red[700],
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15,
+                      ),
+                      SizedBox(height: 45),
+                      emailField,
+                      SizedBox(height: 25),
+                      passwordField,
+                      SizedBox(height: 35),
+                      loginButton,
+                      SizedBox(height: 15),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text("Press me to "),
+                          GestureDetector(
+                            onTap: () {
+                              _navigateToSignupScreen(context);
+                            },
+                            child: Text(
+                              "Signup ",
+                              style: TextStyle(
+                                  color: Colors.blue[900],
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15),
                             ),
                           ),
-                        )
-                      ],
-                    ),
-                  ],
+                          Text("now !")
+                        ],
+                      ),
+                      SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          GestureDetector(
+                            onTap: () {
+                              _navigateToResetScreen(context);
+                            },
+                            child: Text(
+                              "Forgot Password",
+                              style: TextStyle(
+                                color: Colors.red[700],
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

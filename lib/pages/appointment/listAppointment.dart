@@ -17,6 +17,7 @@ class _listAptState extends State<listApt> {
 
   var apts = [];
   final _firestore = FirebaseFirestore.instance;
+  User? user = FirebaseAuth.instance.currentUser;
   final _auth = FirebaseAuth.instance;
 
   Muser loggedInUser = Muser();
@@ -32,10 +33,11 @@ class _listAptState extends State<listApt> {
   void loadUser() {
     _firestore
         .collection("mUsers")
-        .doc(_auth.currentUser!.uid)
+        .doc(user!.uid)
         .get()
         .then((value) {
       this.loggedInUser = Muser.fromMap(value.data());
+      setState(() {});
     });
   }
 
